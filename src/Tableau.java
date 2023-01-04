@@ -5,18 +5,19 @@ import java.util.Objects;
 public class Tableau<O> {
     private int capacite;
     private int taille;
-    private Object[] list;
+    private O[] list;
 
+    @SuppressWarnings("unchecked")
     public Tableau() {
         capacite = 1;
         taille = 0;
-        list = new Object[capacite];
+        list = (O[]) new Object[capacite];
     }
-
+    @SuppressWarnings("unchecked")
     public Tableau(int n) {
         capacite = n;
         taille = 0;
-        list = new Object[n];
+        list =(O[]) new Object[n];
     }
 
     public int getCapacite() {
@@ -26,14 +27,14 @@ public class Tableau<O> {
     public int getTaille() {
         return taille;
     }
-
+    @SuppressWarnings("unchecked")
     public void agrandir() {
-        Object[] arr = new Object[capacite*2];
+        O[] arr = (O[]) new Object[capacite*2];
         capacite *= 2;
         System.arraycopy(list,0, arr, 0, taille);
         list = arr;
     }
-    public void addElement(Object o) {
+    public void addElement(O o) {
         if(taille == capacite) {
             agrandir();
         }
@@ -41,7 +42,7 @@ public class Tableau<O> {
         taille++;
     }
 
-    public Object getElementAt(int i) throws MyArrayOutOfBoundsException {
+    public O getElementAt(int i) throws MyArrayOutOfBoundsException {
         if (i<0 || i>= taille) {
             throw new MyArrayOutOfBoundsException("Out Of Bounds");
         }
