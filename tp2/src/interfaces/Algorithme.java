@@ -1,5 +1,5 @@
 package interfaces;
 
 public interface Algorithme {
-    void appliquer(double d[]);
+    void appliquer (double d[]);
 }

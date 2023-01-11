@@ -1,9 +1,10 @@
 import interfaces.Algorithme;
+import interfaces._Algorithme;
 
 public class Main {
 
     public static void main(String[] argv) {
-        double[] d = new double[10];
+        Double[] d = new Double[10];
         String s = "Tableau : [";
         for(int i=0; i<10; ++i) {
             d[i] = Math.random()*100;
@@ -15,7 +16,7 @@ public class Main {
         System.out.println(s);
         try {
             Class classe = Class.forName(argv[0]);
-            Algorithme o = (Algorithme) classe.getDeclaredConstructor().newInstance();
+            _Algorithme<Double> o = (_Algorithme<Double>) classe.getDeclaredConstructor().newInstance();
             System.out.println("******* Application de l'algorithme *******");
             o.appliquer(d);
         }
